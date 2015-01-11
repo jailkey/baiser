@@ -82,6 +82,46 @@ var extractedData = baiser.extract(template, content);
 ```
 
 ###Templating
+baiser provides a minimal template language with the following commands.
+Everything command is surrounded by dubble currly brackets is a command.
+
+####Variable
+Every command that did not start with . / ^ # is a varaible
+```
+	{{myentry}}
+```
+
+####List
+A List starts with a # and ends with /
+```
+	{{#list}}
+		{{listentry}}
+	{{/list}}
+```
+
+####Pointer
+A pointer refers to an array value the command is .
+```
+	{{#list}}
+		{{.}}
+	{{/list}}
+```
+
+####Exists
+To check if a value exists use ^ at the beginning and /^
+```
+	{{^myvalue}}
+		This sentences will only displayed if myvalue exists!
+	{{/^myvalue}}
+```
+
+
+
+
+
+
+
+
 
 
 
