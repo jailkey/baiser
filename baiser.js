@@ -476,13 +476,13 @@
  * @constructor TwoWayTemplate
  * @description the two way template interface
  */
-	var TwoWayTemplate = function(){
+	var Baiser = function(){
 		this.template = false;
 		this.content = false;
 	}
 
 
-	TwoWayTemplate.prototype = {
+	Baiser.prototype = {
 /**
  * @method  extract
  * @description extracts the data from generated content based on the given template
@@ -508,6 +508,6 @@
 	}
 
 
-	window.TwoWayTemplate = TwoWayTemplate;
+	window.Baiser = Baiser;
 
 }(window));
