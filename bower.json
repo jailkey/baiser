@@ -1,0 +1,16 @@
+{
+  "name": "baiser.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/jailkey/baiser",
+  "authors": [
+    "Jan <jan@position-absurd.com>"
+  ],
+  "description": "simple two way template engine",
+  "main": "baiser.js",
+  "keywords": [
+    "two-way",
+    "template",
+    "javascript"
+  ],
+  "license": "MIT"
+}
