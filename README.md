@@ -3,8 +3,8 @@ Simple two way template engine
 
 baiser.js provides an easy way to generate content by a template/data set and extracting the data from the generated content based on the template.
 ![baiser.js flow](https://github.com/jailkey/baiser/blob/master/doc/image/baiser-flow.png)
-For extracting the data from the content baiser.js use unvisible controll chars to mark the data in the generated content.
-baiser.js is native javascript, with no dependencys
+For extracting the data from the content baiser.js use invisible control chars to mark the data in the generated content.
+baiser.js is native javascript, with no dependencies
 
 ## install baiser.js
 donwload baiser.js and include it to your document:
@@ -14,16 +14,16 @@ donwload baiser.js and include it to your document:
 ```
 
 ## use
-Baiser has only two methodes (generate/extract), one for generating content and one for extracting data.
-Here a littel example how to generate content.
+Baiser has only two methods (generate/extract), one for generating content and one for extracting data.
+Here a little example how to generate content.
 
-create an instace of braiser
+Create an instance of braiser:
 ```javascript
 var baiser = new Baiser();
 ```
 
 Create a template, you can use a string or a function with comments for a multiline template.
-In this example we generate some markdown content
+In this example we generate some markdown content:
 ```javascript
 var template = function(){/*
 ###{{topic}}
@@ -82,11 +82,11 @@ var extractedData = baiser.extract(template, content);
 ```
 
 ###Templating
-baiser provides a minimal template language with the following commands.
-Everything command is surrounded by dubble currly brackets is a command.
+Baiser provides a minimal template language.
+Every command is surrounded by dubble currly brackets.
 
 ####Variable
-Every command that did not start with . / ^ # is a varaible
+Every command that did not start with . / ^ # is a variable
 ```
 	{{myentry}}
 ```
@@ -115,14 +115,5 @@ To check if a value exists use ^ at the beginning and /^
 	{{/^myentry}}
 
 ```
-
-
-
-
-
-
-
-
-
 
 
