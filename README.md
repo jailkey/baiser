@@ -7,8 +7,12 @@ For extracting the data baiser.js uses invisible control chars to mark the data 
 Baiser.js is native javascript, with no dependencies.
 
 ## install baiser.js
-donwload baiser.js and include it to your document:
+donwload baiser.js or install with bower:
+```
+	bower install baiser
+```
 
+and include it to your document:
 ```html
 <script type="text/javascript" src="baiser.js"></script>
 ```
