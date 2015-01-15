@@ -108,11 +108,20 @@ A pointer refers to an array value the command is .
 ```
 
 ####Exists
-To check if a value exists use ^ at the beginning and /^
+To check if a value exists use ? at the beginning and /?
 ```
-	{{^myentry}}
+	{{?myentry}}
 		This sentences will only displayed if myentry exists!
-	{{/^myentry}}
+	{{/?myentry}}
+
+```
+
+####Not Exists
+To check if a value not exists use ! at the beginning and /!
+```
+	{{!myentry}}
+		This sentences will only displayed if myentry exists!
+	{{/!myentry}}
 
 ```
 

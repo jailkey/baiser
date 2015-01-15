@@ -1,5 +1,5 @@
 /**
- * @version 0.1
+ * @version 0.0.2
  * @author Jan Kaufmann
  */
 
@@ -21,7 +21,9 @@
 		POINTER = "\u200B",
 		POINTER_END = "\u2063",
 		BLOCK = "--block--",
-		BLOCK_END = "--block-end--";
+		BLOCK_END = "--block-end--",
+		NEGATIV_BLOCK = "--negativ-block--",
+		NEGATIV_BLOCK_END = "--negativ-block-end--";
 
 
 	var getTypeName = function(type){
@@ -79,7 +81,7 @@
 			if(this.type === TEXT){
 				this.content += content
 			}else{
-				if(!/(#|\/|\^)/.test(content)){
+				if(!/(#|\/|\?|\!)/.test(content)){
 					this.name += content;
 				}
 			}
@@ -119,16 +121,20 @@
  */
 		getNodeType : function(nodeName){
 			switch(nodeName){
-				case "/^":
+				case "/?":
 					return BLOCK_END;
+				case "/!":
+					return NEGATIV_BLOCK_END;
 			}
 			switch(nodeName[0]){
 				case "#":
 					return LIST;
 				case "/":
 					return LIST_END;
-				case "^":
+				case "?":
 					return BLOCK;
+				case "!":
+					return NEGATIV_BLOCK;
 				case ".":
 					return POINTER;
 				default:
@@ -172,13 +178,18 @@
 							output += LIST_END;
 							break;
 						case BLOCK:
-							
 							if(data[branch[i].name]){
 								output += createBranch(branch[i].children, data);
 							}
 							break;
 						case BLOCK_END:
-							
+							break;
+						case NEGATIV_BLOCK:
+							if(!data[branch[i].name]){
+								output += createBranch(branch[i].children, data);
+							}
+							break;
+						case NEGATIV_BLOCK_END:
 							break;
 						case POINTER:
 							output += POINTER;
@@ -232,12 +243,12 @@
 							state = OPEN;
 							node = new TemplateNode(this.getNodeType(next(1)+next(2)));
 
-							if(node.type == LIST_END || node.type === BLOCK_END){
+							if(node.type == LIST_END || node.type === BLOCK_END || node.type === NEGATIV_BLOCK_END){
 								tree.parent.addChild(node);
 							}else{
 								tree.addChild(node);
 							}
-							if(node.type === LIST || node.type === BLOCK){
+							if(node.type === LIST || node.type === BLOCK  || node.type === NEGATIV_BLOCK){
 								tree = node;
 							}
 						}
@@ -245,7 +256,7 @@
 					case "}":
 						if(next() === "}"){
 
-							if(node.type === LIST_END || node.type === BLOCK_END){
+							if(node.type === LIST_END || node.type === BLOCK_END || node.type === NEGATIV_BLOCK_END){
 								tree = node.parent;
 								node = node.parent;
 							}
@@ -316,7 +327,7 @@
 				count = 0;
 
 			for(; i < len; i++){
-				if(data[i].type === BLOCK){
+				if(data[i].type === BLOCK ){
 					
 					var blockLen = data[i].children.length;
 						y = 0;

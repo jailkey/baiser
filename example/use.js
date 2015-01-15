@@ -33,7 +33,7 @@ var data = {
 
 
 var content = baiser.generate(template, data)
-document.querySelector("[name=output]").value = content;
+console.log("content", content);
 
 
 var data = baiser.extract(template, content);
