@@ -1,10 +1,10 @@
-# baiser.js
-Simple two way template engine
+# Baiser.js
+Simple two way template engine.
 
-baiser.js provides an easy way to generate content by a template/data set and extracting the data from the generated content based on the template.
+Baiser.js provides an easy way to generate content by a template/data set and extracts the data from the generated content based on the template.
 ![baiser.js flow](https://github.com/jailkey/baiser/blob/master/doc/image/baiser-flow.png)
-For extracting the data from the content baiser.js use invisible control chars to mark the data in the generated content.
-baiser.js is native javascript, with no dependencies
+For extracting the data baiser.js uses invisible control chars to mark the data in the generated content.
+Baiser.js is native javascript, with no dependencies.
 
 ## install baiser.js
 donwload baiser.js and include it to your document:
@@ -22,7 +22,7 @@ Create an instance of braiser:
 var baiser = new Baiser();
 ```
 
-Create a template, you can use a string or a function with comments for a multiline template.
+Create a template. You can use a string or a function with comments for a multiline template.
 In this example we generate some markdown content:
 ```javascript
 var template = function(){/*
@@ -34,7 +34,7 @@ var template = function(){/*
 {{/list}}
 */};
 ```
-We need data, create it:
+We need data, so we create some:
 ```javascript
 var data = {
 	topic : "Thats the Topic",
@@ -54,12 +54,12 @@ var data = {
 	]
 };
 ```
-And generate the content:
+Now we generate the content:
 ```javascript
 var content = baiser.generate(template, data);
 ```
 
-Now the value of content looks like this:
+At this point the value of content looks like this:
 ```markdown
 ###￻Thats the Topicﾠ
 ￹‎
@@ -86,7 +86,7 @@ Baiser provides a minimal template language.
 Every command is surrounded by dubble currly brackets.
 
 ####Variable
-Every command that did not start with . / ^ # is a variable
+Every command that does not start with . / ? ! # is a variable
 ```
 	{{myentry}}
 ```
@@ -100,7 +100,7 @@ A List starts with a # and ends with /
 ```
 
 ####Pointer
-A pointer refers to an array value the command is .
+A pointer refers to an array value. The command is .
 ```
 	{{#list}}
 		{{.}}
@@ -108,19 +108,19 @@ A pointer refers to an array value the command is .
 ```
 
 ####Exists
-To check if a value exists use ? at the beginning and /?
+To check if a value exists use ? at the beginning and /? at the end
 ```
 	{{?myentry}}
-		This sentences will only displayed if myentry exists!
+		This sentence will be only displayed if myentry exists!
 	{{/?myentry}}
 
 ```
 
 ####Not Exists
-To check if a value not exists use ! at the beginning and /!
+To check if a value does not exist use ! at the beginning and /! at the end
 ```
 	{{!myentry}}
-		This sentences will only displayed if myentry exists!
+		This sentence will be only displayed if myentry does not exist!
 	{{/!myentry}}
 
 ```
