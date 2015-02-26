@@ -10,7 +10,7 @@ Baiser.js is native javascript, with no dependencies.
 donwload baiser.js or install with bower:
 ```
 	bower install baiser
-```
+``
 
 and include it to your document:
 ```html
@@ -66,17 +66,17 @@ var content = baiser.generate(template, data);
 At this point the value of content looks like this:
 ```markdown
 ###￻Thats the Topicﾠ
-￹‎
-  ####Show this if listitem is set: ￻listitem valueﾠ
-  ￹‎* ​One⁣
-  ‏‎* ​Two⁣
-  ‏‎* ​Three⁣
-  ‏￺
+￹
+  ####Show this if listitem is set: listitem valueﾠ
+  ￹* ​One
+  ‏‎* ​Two
+  ‏‎* ​Three
+  ‏
 ‏‎
-  ####Show this if listitem is set: ￻another listitem valueﾠ
-  ￹‎* ​Four⁣
-  ‏‎* ​Five⁣
-  ‏‎* ​Six⁣
+  ####Show this if listitem is set: another listitem valueﾠ
+  ￹* ​Four
+  ‏‎* ​Five
+  ‏‎* ​Six
 ```
 
 If we want to extract the data from the content, we only have to use the extract method:
