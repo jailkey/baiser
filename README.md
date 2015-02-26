@@ -65,16 +65,16 @@ var content = baiser.generate(template, data);
 
 At this point the value of content looks like this:
 ```markdown
-###￻Thats the Topicﾠ
-￹
+###Thats the Topicﾠ
+
   ####Show this if listitem is set: listitem valueﾠ
-  ￹* ​One
+  * ​One
   ‏‎* ​Two
   ‏‎* ​Three
   ‏
 ‏‎
   ####Show this if listitem is set: another listitem valueﾠ
-  ￹* ​Four
+  * ​Four
   ‏‎* ​Five
   ‏‎* ​Six
 ```
